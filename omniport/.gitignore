@@ -1,0 +1,18 @@
+# Build output folder
+build/
+
+# NPM packages
+node_modules/
+
+# Ignore apps ...
+apps/*
+# ... but commit the README.md file so that the folder gets created
+!apps/README.md
+
+# Ignore services ...
+services/*
+# ... but commit the README.md file so that the folder gets created
+!services/README.md
+
+# Ignore formula_one
+formula_one/
