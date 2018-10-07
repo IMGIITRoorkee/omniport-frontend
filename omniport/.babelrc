@@ -1,0 +1,46 @@
+{
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./core"
+        ],
+        "alias": {
+          "core": "./core",
+          "apps": "./apps",
+          "formula_one": "./formula_one",
+          "underscore": "lodash"
+        }
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties"
+    ],
+    [
+      "@babel/plugin-syntax-dynamic-import"
+    ],
+    [
+      "@babel/plugin-transform-arrow-functions"
+    ],
+    [
+      "@babel/plugin-proposal-async-generator-functions"
+    ],
+    [
+      "dynamic-import-webpack"
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "dynamic-import-node"
+      ]
+    }
+  }
+}
