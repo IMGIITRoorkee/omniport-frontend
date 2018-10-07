@@ -1,21 +1,19 @@
 import React from 'react'
-
 import PropTypes from 'prop-types'
-
 import { Scrollbars } from 'react-custom-scrollbars'
 
 import '../css/secondary-sidebar.css'
 
 class SecondarySidebar extends React.PureComponent {
   render () {
-    const {children, withScrollbars} = this.props
+    const { children, withScrollbars } = this.props
     return (
       <div styleName='secondary-sidebar'>
-        {
-          withScrollbars
-            ? <Scrollbars autoHide className='scrollbar-wrapper'>{children}</Scrollbars>
-            : children
-        }
+        {withScrollbars
+          ? <Scrollbars autoHide className='scrollbar-wrapper'>
+            {children}
+          </Scrollbars>
+          : children}
       </div>
     )
   }

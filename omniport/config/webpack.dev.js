@@ -12,8 +12,8 @@ module.exports = merge(common, {
       /*
         Proxy API requests to the backend to bypass CORS restrictions
         This URL will need to be changed but never commit the changes
+        '/path': 'https://domain:port'
        */
-      '/path': 'https://domain:port'
     },
     disableHostCheck: true,
     contentBase: path.join(__dirname, 'build'),

@@ -1,8 +1,6 @@
 import React from 'react'
-
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import { NavLink } from 'react-router-dom'
 import { Icon, Menu, Popup } from 'semantic-ui-react'
 
@@ -50,16 +48,13 @@ class PrimarySidebar extends React.Component {
   }
 
   getSideBarMenuItems = () => {
-    const {sideBarMenuItems} = this.state
+    const { sideBarMenuItems } = this.state
     return sideBarMenuItems.map((item, index) => {
       return (
         <Popup
           key={index}
           trigger={
-            <Menu.Item
-              as={NavLink}
-              exact to={item.path}
-              name={item.name}>
+            <Menu.Item as={NavLink} exact to={item.path} name={item.name}>
               <Icon name={item.icon} size='large' />
             </Menu.Item>
           }
@@ -71,7 +66,7 @@ class PrimarySidebar extends React.Component {
   }
 
   render () {
-    const {themeColor} = this.props
+    const { themeColor } = this.props
     return (
       <Menu
         icon
@@ -79,10 +74,9 @@ class PrimarySidebar extends React.Component {
         inverted
         vertical
         color={themeColor}
-        styleName='primary-sidebar'>
-        {
-          this.getSideBarMenuItems()
-        }
+        styleName='primary-sidebar'
+      >
+        {this.getSideBarMenuItems()}
       </Menu>
     )
   }
@@ -94,7 +88,7 @@ PrimarySidebar.propTypes = {
   location: PropTypes.object
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     themeColor: state.getIn(['theme', 'selectedColor'])
   }

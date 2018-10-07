@@ -1,14 +1,12 @@
 import React from 'react'
-
 import PropTypes from 'prop-types'
-
 import { Header } from 'semantic-ui-react'
 
 import '../css/secondary-sidebar-component.css'
 
 class SecondarySidebarComponent extends React.PureComponent {
   render () {
-    const {header, icon, children} = this.props
+    const { header, icon, children } = this.props
     const headerProps = {
       as: 'h4',
       content: header,

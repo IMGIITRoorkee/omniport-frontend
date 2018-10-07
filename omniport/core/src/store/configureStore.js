@@ -1,7 +1,5 @@
 import { applyMiddleware, compose, createStore } from 'redux'
-
 import createHistory from 'history/createBrowserHistory'
-
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import thunk from 'redux-thunk'
 import { routerMiddleware } from 'react-router-redux'
