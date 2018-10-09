@@ -9,8 +9,8 @@ be extensible, customisable, performant and powerful.
 
 ## Technological satck
 
-- Framework: `React`
 - Language: `Javascript`
+- Library: `React`
 - JavaScript bundler: `Webpack`
 - Server: `Webpack dev server`
 - Routing: `React Router`
