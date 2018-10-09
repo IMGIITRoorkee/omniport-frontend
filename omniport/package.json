@@ -12,10 +12,9 @@
   "scripts": {
     "discovery": "babel-node discovery.js",
     "start": "npm run discovery && NODE_ENV=development webpack-dev-server --config config/webpack.dev.js  --display-error-details --progress --host 0.0.0.0 --port",
-    "open": "babel-node tools/distServer.js",
     "build": "webpack --config config/webpack.prod.js && npm run open",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "create-app": "../scripts/create-app.sh"
+    "open": "babel-node tools/distServer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Information Management Group",
