@@ -2,6 +2,8 @@ const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 
+const PROXY = process.env.proxy
+
 // Merge the Webpack common config and the new dictionary, thus creating a dev config
 module.exports = merge(common, {
   // context: path.join(__dirname, "./"),

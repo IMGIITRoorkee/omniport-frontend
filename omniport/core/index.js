@@ -21,36 +21,30 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          {
-            configs.services.map((service, index) => {
-              return (
-                <Route
-                  exact
-                  path={service.baseUrl}
-                  key={index}
-                  component={Loadable({
-                    loader: () => import(`services/${service.source}`),
-                    loading: Loading
-                  })}
-                />
-              )
-            })
-          }
-          {
-            configs.apps.map((app, index) => {
-              return (
-                <Route
-                  exact
-                  path={app.baseUrl}
-                  key={index}
-                  component={Loadable({
-                    loader: () => import(`apps/${app.source}`),
-                    loading: Loading
-                  })}
-                />
-              )
-            })
-          }
+          {configs.services.map((service, index) => {
+            return (
+              <Route
+                path={service.baseUrl}
+                key={index}
+                component={Loadable({
+                  loader: () => import(`services/${service.source}`),
+                  loading: Loading
+                })}
+              />
+            )
+          })}
+          {configs.apps.map((app, index) => {
+            return (
+              <Route
+                path={app.baseUrl}
+                key={index}
+                component={Loadable({
+                  loader: () => import(`apps/${app.source}`),
+                  loading: Loading
+                })}
+              />
+            )
+          })}
         </Switch>
       </BrowserRouter>
     )
