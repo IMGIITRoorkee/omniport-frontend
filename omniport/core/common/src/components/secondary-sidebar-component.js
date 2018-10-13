@@ -13,7 +13,7 @@ class SecondarySidebarComponent extends React.PureComponent {
       icon
     }
     return (
-      <div styleName={`secondary-sidebar-component`}>
+      <div styleName='secondary-sidebar-component'>
         <Header {...headerProps} />
         {children}
       </div>

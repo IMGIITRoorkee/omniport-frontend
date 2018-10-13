@@ -66,7 +66,8 @@ class PrimarySidebar extends React.Component {
   }
 
   render () {
-    const { themeColor } = this.props
+    const themeColor = localStorage.getItem('themeColor') || 'blue'
+
     return (
       <Menu
         icon
@@ -88,10 +89,4 @@ PrimarySidebar.propTypes = {
   location: PropTypes.object
 }
 
-const mapStateToProps = state => {
-  return {
-    themeColor: state.getIn(['theme', 'selectedColor'])
-  }
-}
-
-export default connect(mapStateToProps, null)(PrimarySidebar)
+export default PrimarySidebar
