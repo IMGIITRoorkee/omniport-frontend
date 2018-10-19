@@ -3,6 +3,6 @@
     overflow-x: auto;
 }
 .primary-sidebar::-webkit-scrollbar {
-    width: 0.25em;
-    height: 0.25em;
+    width: 0;
+    height: 0;
 }
