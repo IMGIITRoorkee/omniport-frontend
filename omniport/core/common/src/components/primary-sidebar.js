@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Icon, Menu, Popup } from 'semantic-ui-react'
+import { isBrowser, isMobile } from 'react-device-detect'
 
 import '../css/primary-sidebar.css'
 
@@ -59,7 +60,7 @@ class PrimarySidebar extends React.Component {
             </Menu.Item>
           }
           content={item.name}
-          position='right center'
+          position={isMobile ? 'bottom center' : 'right center'}
         />
       )
     })
@@ -73,7 +74,7 @@ class PrimarySidebar extends React.Component {
         icon
         attached
         inverted
-        vertical
+        vertical={!isMobile}
         color={themeColor}
         styleName='primary-sidebar'
       >
