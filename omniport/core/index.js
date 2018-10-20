@@ -13,7 +13,7 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('app')
 )
 
 if (module.hot) {
@@ -22,7 +22,7 @@ if (module.hot) {
       <Provider store={store}>
         <App />
       </Provider>,
-      document.getElementById('root')
+      document.getElementById('app')
     )
   })
 }
