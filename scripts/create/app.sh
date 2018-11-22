@@ -3,7 +3,7 @@ read -p "Enter app name with spaces: " name
 
 app_name_underscore="${name// /_}"
 app_name_dash="${name// /-}"
-app_name_display="${name}"
+app_name_display="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}"
 
 # Clone the template
 cd omniport/apps/
@@ -19,7 +19,8 @@ git init
 
 # Replace placeholders with app related data
 sed -i "s/\[\[app_name\]\]/${app_name_underscore}/g" config.json
-printf "Added ${app_name_underscore} in config.json\n"
+sed -i "s/\[\[app\-display\-name\]\]/${app_name_display}/g" config.json
+printf "Added ${app_name_underscore} & ${app_name_display} in config.json\n"
 sed -i "s/\[\[app\-name\]\]/${app_name_dash}/g" README.md
 printf "Added ${app_name_dash} in README.md\n"
 git add config.json README.md LICENSE .gitignore
