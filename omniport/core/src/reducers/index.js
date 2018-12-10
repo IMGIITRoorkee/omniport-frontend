@@ -1,6 +1,9 @@
-import { combineReducers } from 'redux-immutable'
+import { combineReducers } from 'redux'
+
 import theme from 'core/common/src/reducers/theme'
+import appList from 'core/common/src/reducers/appList'
 
 export default combineReducers({
-  theme
+  appList: appList,
+  theme: theme
 })
