@@ -3,9 +3,9 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import { connect } from 'react-redux'
 
-import NoMatch from './NoMatch'
-import { setAppList } from 'core/common/src/actions/appList'
 import Loading from 'formula_one/src/components/loading'
+import { setAppList } from 'core/common/src/actions/appList'
+import NoMatch from './noMatch'
 
 import configs from './configs.json'
 
@@ -56,7 +56,7 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps (state) {
+const mapStateToProps = state => {
   return {
     appList: state.appList
   }
