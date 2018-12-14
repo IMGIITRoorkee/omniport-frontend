@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Icon, Menu, Popup } from 'semantic-ui-react'
-import { isBrowser, isMobile } from 'react-device-detect'
+import { isMobile } from 'react-device-detect'
 
+import { getTheme } from 'formula_one'
 import '../css/primary-sidebar.css'
 
 class PrimarySidebar extends React.Component {
@@ -67,15 +67,13 @@ class PrimarySidebar extends React.Component {
   }
 
   render () {
-    const themeColor = localStorage.getItem('themeColor') || 'blue'
-
     return (
       <Menu
         icon
         attached
         inverted
         vertical={!isMobile}
-        color={themeColor}
+        color={getTheme()}
         styleName='primary-sidebar'
       >
         {this.getSideBarMenuItems()}
