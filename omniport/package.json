@@ -20,6 +20,7 @@
   "author": "Information Management Group",
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@tinymce/tinymce-react": "^2.4.0",
     "axios": "^0.18.0",
     "immutable": "^3.8.1",
     "moment": "^2.23.0",
