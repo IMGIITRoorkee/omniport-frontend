@@ -18,9 +18,8 @@
   },
   "keywords": [],
   "author": "Information Management Group",
-  "license": " GPL-3.0-or-later",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
-    "antd": "^3.10.2",
     "axios": "^0.18.0",
     "immutable": "^3.8.1",
     "moment": "^2.23.0",
@@ -71,6 +70,7 @@
     "chalk": "^2.4.1",
     "clean-webpack-plugin": "^0.1.19",
     "connect-history-api-fallback": "^1.5.0",
+    "core-decorators": "^0.20.0",
     "css-loader": "^1.0.1",
     "directory-tree": "^2.2.1",
     "file-loader": "^2.0.0",
