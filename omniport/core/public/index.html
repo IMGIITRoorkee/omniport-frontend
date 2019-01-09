@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--
+                                                                __
+                                 __                            /\ \__
+        ___     ___ ___     ___ /\_\  __   _____     ___   _ __\ \ ,_\
+       / __`\ /' __` __`\ /' _ `\/\ \/\_\ /\ '__`\  / __`\/\`'__\ \ \/
+      /\ \L\ \/\ \/\ \/\ \/\ \/\ \ \ \/_/_\ \ \L\ \/\ \L\ \ \ \/ \ \ \_
+      \ \____/\ \_\ \_\ \_\ \_\ \_\ \_\/\_\\ \ ,__/\ \____/\ \_\  \ \__\
+       \/___/  \/_/\/_/\/_/\/_/\/_/\/_/\/_/ \ \ \/  \/___/  \/_/   \/__/
+         ______                              \ \ \
+        /\_____\                              \ \_\
+        \/_____/                               \/_/
+-->
 
-    <title>Omniport</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- TODO Add manifest.json -->
-    <link rel="manifest" href="manifest.json" />
+  <title>Omniport</title>
 
-    <!-- Trusting Cloudflare to provide CSS -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
-    />
-  </head>
+  <!-- TODO Add manifest.json -->
+  <link rel="manifest" href="manifest.json" />
 
-  <body style="min-height: 100%;">
-    <div id="app" style="height: 100%;"></div>
-  </body>
+  <!-- Load Semantic UI assets from the backend -->
+  <link rel="stylesheet" type="text/css" href="/static/semantic-ui/semantic.min.css" />
 
-  <noscript>
-    Your system does not support JavaScript so Omniport does not support your
-    system.
-  </noscript>
+  <!-- Load TinyMCE assets from the backend -->
+  <script type="text/javascript" src="/static/tinymce/js/tinymce/tinymce.min.js" defer></script>
+</head>
+
+<body style="min-height: 100%;">
+  <div id="app" style="height: 100%;"></div>
+</body>
+
+<noscript>
+  Your system does not support JavaScript so, quite naturally, Omniport does not support your system.
+  Welcome to the 21st century!
+</noscript>
+
 </html>
