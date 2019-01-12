@@ -5,6 +5,8 @@ require('@babel/polyfill')
 
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+//   .BundleAnalyzerPlugin
 
 const PRODUCTION = process.env.NODE_ENV === 'production'
 
@@ -176,6 +178,8 @@ module.exports = {
   },
 
   plugins: [
+    // new BundleAnalyzerPlugin(),
+
     // Enables Hot Module Replacement, otherwise known as HMR */
     new webpack.HotModuleReplacementPlugin(),
 
@@ -205,7 +209,8 @@ module.exports = {
         removeComments: true,
         collapseWhitespace: true
       },
-      inject: true
+      inject: true,
+      chunksSortMode: 'none'
     })
   ]
 }

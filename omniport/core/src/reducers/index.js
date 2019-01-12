@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 import theme from 'core/common/src/reducers/theme'
 import appList from 'core/common/src/reducers/appList'
-import auth from 'core/common/src/reducers/auth'
+import auth from 'services/auth/src/reducers'
 
 export default combineReducers({
   appList: appList,

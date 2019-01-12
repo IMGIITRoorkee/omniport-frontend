@@ -4,8 +4,8 @@ import Loadable from 'react-loadable'
 import { connect } from 'react-redux'
 
 import Loading from 'formula_one/src/components/loading'
+import { NoMatch } from 'formula_one'
 import { setAppList } from 'core/common/src/actions/appList'
-import NoMatch from './noMatch'
 
 import configs from './configs.json'
 
@@ -48,7 +48,8 @@ class App extends React.Component {
                 />
               )
             })}
-          {/* Temporary 404 page */}
+
+          {/* Default 404 page */}
           {appList.isLoaded && <Route component={NoMatch} />}
         </Switch>
       </BrowserRouter>
