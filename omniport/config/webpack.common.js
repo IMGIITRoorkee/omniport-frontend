@@ -63,6 +63,15 @@ module.exports = {
 
   module: {
     rules: [
+      // Configuration
+
+      {
+        test: /\.json$/,
+        type: 'javascript/auto',
+        loader: 'file-loader',
+        include: /\.\/config/
+      },
+
       // HTML
 
       {
@@ -105,13 +114,6 @@ module.exports = {
         ]
       },
 
-      {
-        test: /\.json$/,
-        type: 'javascript/auto',
-        loader: 'file-loader',
-        include: /\.\/config/
-      },
-
       // Assets
 
       {
@@ -141,7 +143,7 @@ module.exports = {
       // Ignored
 
       {
-        test: /\.md$/,
+        test: /(\.(md)|LICENSE)$/,
         loader: 'null-loader'
       }
     ]

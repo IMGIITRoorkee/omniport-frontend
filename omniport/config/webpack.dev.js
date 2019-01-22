@@ -1,8 +1,10 @@
+const fromPairs = require('lodash/fromPairs')
+
 const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 
-const PROXY = process.env.proxy
+const PROXY = process.env.PROXY
 
 // Merge the Webpack common config and the new dictionary, thus creating a dev config
 module.exports = merge(common, {
@@ -10,13 +12,35 @@ module.exports = merge(common, {
   mode: 'development',
 
   devServer: {
-    proxy: {
-      /*
-        Proxy API requests to the backend to bypass CORS restrictions
-        This URL will need to be changed but never commit the changes
-        '/path': 'https://domain:port'
-       */
-    },
+    proxy: fromPairs(
+      [
+        // Kernel
+        '/kernel',
+
+        // Authentication
+        '/base_auth',
+        '/session_auth',
+        '/open_auth',
+        '/token_auth',
+
+        // Core components
+        '/branding',
+        '/bootstrap',
+        '/omnipotence',
+
+        // Files
+        '/static',
+        '/media',
+        '/personal',
+
+        // Services and apps
+        '/api'
+      ].map(path => {
+        // This django${PORT} reference only works in Docker
+        // If not using Docker, replace it with the actual URL of the backend
+        return [path, `http://django${PROXY}:${PROXY}`]
+      })
+    ),
     disableHostCheck: true,
     contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
