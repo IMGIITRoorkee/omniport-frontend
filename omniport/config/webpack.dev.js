@@ -24,17 +24,20 @@ module.exports = merge(common, {
         '/token_auth',
 
         // Core components
-        '/branding',
-        '/bootstrap',
         '/omnipotence',
+        '/bootstrap',
 
         // Files
+        '/branding',
         '/static',
         '/media',
         '/personal',
 
         // Services and apps
-        '/api'
+        '/api',
+
+        // Websockets
+        '/ws'
       ].map(path => {
         // This django${PORT} reference only works in Docker
         // If not using Docker, replace it with the actual URL of the backend
