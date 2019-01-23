@@ -12,7 +12,7 @@
   "scripts": {
     "discovery": "babel-node discovery.js",
     "start": "npm run discovery && NODE_ENV=development webpack-dev-server --config config/webpack.dev.js  --display-error-details --progress --host 0.0.0.0",
-    "build": "webpack --config config/webpack.prod.js",
+    "build": "npm run discovery && NODE_ENV=production webpack --config config/webpack.prod.js",
     "open": "babel-node tools/distServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
