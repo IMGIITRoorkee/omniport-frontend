@@ -1,11 +1,13 @@
-# Omniport
-
-## Frontend
+<img src="readme-assets/site/wordmark.svg" height="98px" />
 
 > The frontend of the one true portal for any and every educational institute
 
+## Frontend
+
 Omniport is a portal for educational institutes, designed from the ground up to
-be extensible, customisable, performant and powerful.
+be extensible, customizable, performant and powerful. Omniport also comes with 
+a powerful collection of apps and is simple enough for you to be able to write
+your own.
 
 ## Technological satck
 
@@ -19,7 +21,10 @@ be extensible, customisable, performant and powerful.
 - CSS: `CSS Modules`
 - Other noteworthy packages: `ESNext`, `Babel`
 
-A Dockerised setup is the preferred mode of installation.
+A Dockerised setup is the preferred mode of installation. One such is provided 
+by us on our GitHub account. You can however set all the components up yourself, 
+after suffering a reasonable amount of headbanging, cursing, and physical and 
+mental pain.
 
 ## Contribution guidelines
 
@@ -31,3 +36,7 @@ A Dockerised setup is the preferred mode of installation.
 - Get your pull request merged.
 
 It's that simple!
+
+## Credits
+
+<img src="readme-assets/maintainers/logo.svg" height="32px" /> <img src="readme-assets/maintainers/wordmark.svg" height="32px" />
