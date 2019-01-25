@@ -3,7 +3,6 @@ const fromPairs = require('lodash/fromPairs')
 const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
-
 const PROXY = process.env.PROXY
 
 // Merge the Webpack common config and the new dictionary, thus creating a dev config
@@ -44,6 +43,7 @@ module.exports = merge(common, {
         return [path, `http://django${PROXY}:${PROXY}`]
       })
     ),
+    hot: true,
     disableHostCheck: true,
     contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,

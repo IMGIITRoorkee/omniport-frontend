@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Component, Suspense } from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
-import Loadable from 'react-loadable'
 import { connect } from 'react-redux'
 
 import Loading from 'formula_one/src/components/loading'
@@ -10,49 +9,47 @@ import { setAppList } from 'core/common/src/actions/appList'
 import configs from './configs.json'
 
 /*
- This the the entry point for Omniport
+ This is the entry point for Omniport
 */
 
-class App extends React.Component {
+class App extends Component {
   componentDidMount () {
-    this.props.SetAppList()
+    this.props.setAppList()
   }
 
   render () {
     const { appList } = this.props
     return (
-      <BrowserRouter>
-        <Switch>
-          {configs.services.map((service, index) => {
-            return (
-              <Route
-                path={service.baseUrl}
-                key={index}
-                component={Loadable({
-                  loader: () => import(`services/${service.source}`),
-                  loading: Loading
-                })}
-              />
-            )
-          })}
-          {appList.isLoaded &&
-            appList.data.map((app, index) => {
+      <Suspense fallback={Loading}>
+        <BrowserRouter>
+          <Switch>
+            {configs.services.map((service, index) => {
               return (
                 <Route
-                  path={app.baseUrl}
+                  path={service.baseUrl}
                   key={index}
-                  component={Loadable({
-                    loader: () => import(`apps/${app.source}`),
-                    loading: Loading
-                  })}
+                  component={React.lazy(() =>
+                    import(`services/${service.source}`)
+                  )}
                 />
               )
             })}
+            {appList.isLoaded &&
+              appList.data.map((app, index) => {
+                return (
+                  <Route
+                    path={app.baseUrl}
+                    key={index}
+                    component={React.lazy(() => import(`apps/${app.source}`))}
+                  />
+                )
+              })}
 
-          {/* Default 404 page */}
-          {appList.isLoaded && <Route component={NoMatch} />}
-        </Switch>
-      </BrowserRouter>
+            {/* Default 404 page */}
+            {appList.isLoaded && <Route component={NoMatch} />}
+          </Switch>
+        </BrowserRouter>
+      </Suspense>
     )
   }
 }
@@ -63,15 +60,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    SetAppList: () => {
-      dispatch(setAppList())
-    }
-  }
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { setAppList }
 )(App)
