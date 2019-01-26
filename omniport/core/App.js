@@ -1,11 +1,12 @@
 import React, { Component, Suspense } from 'react'
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Loading from 'formula_one/src/components/loading'
 import { NoMatch } from 'formula_one'
 import { setAppList } from 'core/common/src/actions/appList'
 
+import primarySidebarConfig from 'core/primarySidebarConfigs.json'
 import configs from './configs.json'
 
 /*
@@ -23,6 +24,19 @@ class App extends Component {
       <Suspense fallback={Loading}>
         <BrowserRouter>
           <Switch>
+            <Route
+              exact
+              path='/'
+              render={props => (
+                <Redirect
+                  to={
+                    primarySidebarConfig.services[0]
+                      ? primarySidebarConfig.services[0].path
+                      : '/'
+                  }
+                />
+              )}
+            />
             {configs.services.map((service, index) => {
               return (
                 <Route
@@ -34,6 +48,16 @@ class App extends Component {
                 />
               )
             })}
+            {appList.isLoaded &&
+              appList.data.map((app, index) => {
+                return (
+                  <Route
+                    path={app.baseUrl}
+                    key={index}
+                    component={React.lazy(() => import(`apps/${app.source}`))}
+                  />
+                )
+              })}
             {appList.isLoaded &&
               appList.data.map((app, index) => {
                 return (
