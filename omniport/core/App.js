@@ -58,17 +58,6 @@ class App extends Component {
                   />
                 )
               })}
-            {appList.isLoaded &&
-              appList.data.map((app, index) => {
-                return (
-                  <Route
-                    path={app.baseUrl}
-                    key={index}
-                    component={React.lazy(() => import(`apps/${app.source}`))}
-                  />
-                )
-              })}
-
             {/* Default 404 page */}
             {appList.isLoaded && <Route component={NoMatch} />}
           </Switch>
