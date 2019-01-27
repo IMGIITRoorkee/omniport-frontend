@@ -1,36 +1,52 @@
-printf "Hello! Greetings from Team Omniport\n"
-read -p "Enter app name in lowercase letters, separating words with spaces: " name
+#!/bin/bash
 
-app_name_underscore="${name// /_}"
-app_name_dash="${name// /-}"
-app_name_display="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}"
+printf "Hello! Greetings from Team Omniport\n"
+read -p "Enter app name in lowercase letters, separating words with spaces: " NAME
+
+APP_NAME="${NAME// /_}"
+APP_DISPLAY_NAME="$(tr '[:lower:]' '[:upper:]' <<< ${NAME:0:1})${NAME:1}"
+
+# Enter the apps/ directory
+cd omniport/apps/
 
 # Clone the template
-cd omniport/apps/
-git clone "https://github.com/IMGIITRoorkee/omniport-frontend-template.git" ${app_name_underscore}
+git clone "https://github.com/IMGIITRoorkee/omniport-frontend-template.git" ${APP_NAME}
 printf "Cloned template successfully\n"
 
-# Work inside the app directory
-cd ${app_name_underscore}
+# Enter the app directory
+cd ${APP_NAME}
 
 # Restart Git history
 rm -rf .git
 git init
 
-# Replace placeholders with app related data
-sed -i "s/\[\[app_name\]\]/${app_name_underscore}/g" config.json
-sed -i "s/\[\[app\-display\-name\]\]/${app_name_display}/g" config.json
-printf "Added ${app_name_underscore} & ${app_name_display} in config.json\n"
-sed -i "s/\[\[app\-display\-name\]\]/${app_name_display}/g" README.md
-printf "Added ${app_name_display} in README.md\n"
+# Text substitution
+sed -i "s/\[\[app_name\]\]/${APP_NAME}/g" config.json
+sed -i "s/\[\[app_display_name\]\]/${APP_DISPLAY_NAME}/g" config.json
+printf "Added ${APP_NAME} & ${APP_DISPLAY_NAME} in config.json\n"
+
+# Text substitution
+sed -i "s/\[\[app_display_name\]\]/${APP_DISPLAY_NAME}/g" README.md
+printf "Added ${APP_DISPLAY_NAME} in README.md\n"
+
+# Add non-code files to VCS
 git add config.json README.md LICENSE .gitignore
 
-# Replace placeholders with app related data
+# Enter the components/ directory
 cd src/components
-sed -i "s/\[\[app_name\]\]/${app_name_underscore}/g" app.js
-printf "Added ${app_name_underscore} in header and placeholder text\n"
+
+# Text substitution
+sed -i "s/\[\[app_name\]\]/${APP_NAME}/g" app.js
+printf "Added ${APP_NAME} in header and placeholder text\n"
+
+# Add all code to VCS
 git add ../../src
-git -c user.email=img@iitr.ac.in -c user.name='Information Management Group' commit -m "Initial commit"
+
+# Commit as IMG
+git \
+    -c user.email=img@iitr.ac.in \
+    -c user.name='Information Management Group' \
+    commit -m "Initial commit"
 
 # Done!
 printf "App created successfully! Happy rendering!\n"
