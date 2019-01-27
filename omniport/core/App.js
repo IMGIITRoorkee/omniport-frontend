@@ -32,7 +32,7 @@ class App extends Component {
                   to={
                     primarySidebarConfig.services[0]
                       ? primarySidebarConfig.services[0].path
-                      : '/'
+                      : '/404'
                   }
                 />
               )}
