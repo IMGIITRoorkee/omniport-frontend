@@ -13,6 +13,9 @@ module.exports = merge(common, {
   devServer: {
     proxy: fromPairs(
       [
+        // Manifest
+        '/manifest',
+
         // Kernel
         '/kernel',
 
