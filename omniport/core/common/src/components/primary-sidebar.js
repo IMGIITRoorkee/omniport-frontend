@@ -21,7 +21,7 @@ class PrimarySidebar extends React.Component {
         <Popup
           key={index}
           trigger={
-            <Menu.Item as={NavLink} exact to={item.path} name={item.name}>
+            <Menu.Item as={NavLink} to={item.path} name={item.name}>
               <Icon name={item.icon} size='large' />
             </Menu.Item>
           }
