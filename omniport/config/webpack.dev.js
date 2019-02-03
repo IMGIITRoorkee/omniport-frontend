@@ -13,8 +13,12 @@ module.exports = merge(common, {
   devServer: {
     proxy: fromPairs(
       [
-        // Manifest
+        // Third-party
+        'tinymce',
+
+        // Root views
         '/manifest',
+        '/ensure_csrf',
 
         // Kernel
         '/kernel',
