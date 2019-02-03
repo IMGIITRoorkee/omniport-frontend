@@ -8,14 +8,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 //   .BundleAnalyzerPlugin
 
-const PRODUCTION = process.env.NODE_ENV === 'production'
-
 /*
   Webpack uses `publicPath` to determine where the app is being served from
 
   In development, we always serve from the root, which makes config easier
  */
-const PUBLIC_PATH = PRODUCTION ? '' : '/'
+const PUBLIC_PATH = '/'
 
 /*
   The base directory, an absolute path, for resolving entry points
