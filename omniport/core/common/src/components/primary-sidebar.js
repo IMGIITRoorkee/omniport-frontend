@@ -1,10 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import { Icon, Menu, Popup } from 'semantic-ui-react'
 import { isMobile } from 'react-device-detect'
 
-import { getTheme } from 'formula_one'
+import { getTheme, getThemeObject } from 'formula_one'
 import config from 'core/primarySidebarConfigs.json'
 
 import '../css/primary-sidebar.css'
@@ -21,7 +20,12 @@ class PrimarySidebar extends React.Component {
         <Popup
           key={index}
           trigger={
-            <Menu.Item as={NavLink} to={item.path} name={item.name}>
+            <Menu.Item
+              as={NavLink}
+              to={item.path}
+              name={item.name}
+              id='menuPrimarySidebar'
+            >
               <Icon name={item.icon} size='large' />
             </Menu.Item>
           }
@@ -42,16 +46,21 @@ class PrimarySidebar extends React.Component {
         color={getTheme()}
         styleName='primary-sidebar'
       >
+        <style>
+          {/* Semantic UI classes use !important and React considers inline
+            !important as bad practice */}
+          {`
+              #menuPrimarySidebar.active {
+                color: ${getThemeObject().hexCode} !important;
+                background-color: #fff !important;
+                border-radius: 0;
+              }
+            `}
+        </style>
         {this.getSideBarMenuItems()}
       </Menu>
     )
   }
-}
-
-PrimarySidebar.propTypes = {
-  themeColor: PropTypes.string,
-  history: PropTypes.object,
-  location: PropTypes.object
 }
 
 export default PrimarySidebar
