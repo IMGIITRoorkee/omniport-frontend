@@ -17,7 +17,7 @@ class CustomBreadcrumb extends React.PureComponent {
             {list.map((item, index) => {
               return (
                 <React.Fragment key={index}>
-                  <Breadcrumb.Section link={item.link}>
+                  <Breadcrumb.Section link={Boolean(item.link)}>
                     {item.link ? (
                       <Link to={item.link}>
                         <Header as='h3' color={getTheme()}>
