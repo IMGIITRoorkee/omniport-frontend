@@ -54,7 +54,7 @@ let services = readFolder('./services')
 services = services.filter(x => {
   if (x.primarySidebar) {
     if (!x.primarySidebar.priority) {
-      x.primarySidebar.priority = 9999 /** Infinity**/
+      x.primarySidebar.priority = 9999 /** Infinity **/
     }
     return true
   } else {

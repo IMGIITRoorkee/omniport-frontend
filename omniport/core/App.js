@@ -1,13 +1,19 @@
 import React, { Component, Suspense } from 'react'
-import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
+import {
+  Switch,
+  Route,
+  BrowserRouter,
+  Redirect,
+  history
+} from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import Loading from 'formula_one/src/components/loading'
-import { NoMatch } from 'formula_one'
+import { Loading, NoMatch } from 'formula_one'
 import { setAppList } from 'core/common/src/actions/appList'
 
 import primarySidebarConfig from 'core/primarySidebarConfigs.json'
 import configs from './configs.json'
+import OmniportFrame from './common/src/components/omniport-frame.js'
 
 /*
  This is the entry point for Omniport
@@ -22,8 +28,10 @@ class App extends Component {
     const { appList } = this.props
     return (
       <Suspense fallback={Loading}>
-        <BrowserRouter>
+        <BrowserRouter history={history}>
           <Switch>
+            {/* Root route to redirect to the service with the highest priority
+            in the sidebar */}
             <Route
               exact
               path='/'
@@ -37,17 +45,39 @@ class App extends Component {
                 />
               )}
             />
-            {configs.services.map((service, index) => {
-              return (
-                <Route
-                  path={service.baseUrl}
-                  key={index}
-                  component={React.lazy(() =>
-                    import(`services/${service.source}`)
-                  )}
-                />
-              )
-            })}
+
+            {/* Route to serve the services whose config.json does contain
+            the object primarySidebar in the Omniport frame */}
+            <Route
+              path={configs.services
+                .filter(service => {
+                  return service.primarySidebar
+                })
+                .map(service => {
+                  return service.baseUrl
+                })}
+              component={OmniportFrame}
+            />
+
+            {/* Route to serve the services whose config.json does not contain
+            the object primarySidebar  */}
+            {configs.services
+              .filter(service => {
+                return !service.primarySidebar
+              })
+              .map((service, index) => {
+                return (
+                  <Route
+                    path={service.baseUrl}
+                    key={index}
+                    component={React.lazy(() =>
+                      import(`services/${service.source}`)
+                    )}
+                  />
+                )
+              })}
+
+            {/* Route to serve apps */}
             {appList.isLoaded &&
               appList.data.map((app, index) => {
                 return (
@@ -58,6 +88,7 @@ class App extends Component {
                   />
                 )
               })}
+
             {/* Default 404 page */}
             {appList.isLoaded && <Route component={NoMatch} />}
           </Switch>
