@@ -3,9 +3,7 @@
 const path = require('path')
 const fs = require('fs')
 const url = require('url')
-
 const appDirectory = fs.realpathSync(process.cwd())
-console.log(appDirectory, 'hello')
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
 
 const envPublicUrl = process.env.PUBLIC_URL
@@ -66,19 +64,20 @@ const resolveModule = (resolveFn, filePath) => {
 
 // In runtime we're in ./config/
 module.exports = {
-  dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp('config/build'),
   appPublic: resolveApp('public'),
-  appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveModule(resolveApp, 'src/index'),
+  appIndexJs: resolveModule(resolveApp, 'core/index'),
+  appHtml: resolveApp('core/public/index.html'),
   appPackageJson: resolveApp('package.json'),
-  appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
-  testsSetup: resolveModule(resolveApp, 'src/setupTests'),
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json'))
+  servedPath: getServedPath(resolveApp('package.json')),
+  core: resolveApp('core'),
+  services: resolveApp('services'),
+  formula_one: resolveApp('formula_one'),
+  apps: resolveApp('apps')
 }
 
 module.exports.moduleFileExtensions = moduleFileExtensions
