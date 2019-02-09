@@ -16,7 +16,16 @@ class PrimarySidebar extends React.Component {
   getSideBarMenuItems = () => {
     const { sideBarMenuItems } = this.state
     return sideBarMenuItems.map((item, index) => {
-      return (
+      return isMobile ? (
+        <Menu.Item
+          as={NavLink}
+          to={item.path}
+          name={item.name}
+          id='menuPrimarySidebar'
+        >
+          <Icon name={item.icon} size='large' />
+        </Menu.Item>
+      ) : (
         <Popup
           key={index}
           trigger={
