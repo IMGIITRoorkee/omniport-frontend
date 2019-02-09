@@ -27,4 +27,4 @@ if (module.hot) {
   })
 }
 
-// serviceWorker.register()
+serviceWorker.register()

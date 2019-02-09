@@ -4,7 +4,7 @@ import { Icon, Menu, Popup } from 'semantic-ui-react'
 import { isMobile } from 'react-device-detect'
 
 import { getTheme, getThemeObject } from 'formula_one'
-import config from 'core/primarySidebarConfigs.json'
+import config from 'core/src/configs/primarySidebarConfigs.json'
 
 import '../css/primary-sidebar.css'
 
@@ -49,8 +49,7 @@ class PrimarySidebar extends React.Component {
         <style>
           {/* Semantic UI classes use !important and React considers inline
             !important as bad practice */}
-          {`
-              #menuPrimarySidebar.active {
+          {`#menuPrimarySidebar.active {
                 color: ${getThemeObject().hexCode} !important;
                 background-color: #fff !important;
                 border-radius: 0;

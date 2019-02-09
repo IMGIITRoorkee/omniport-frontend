@@ -2,10 +2,10 @@ const dirTree = require('directory-tree')
 const jsonfile = require('jsonfile')
 
 const configs = {}
-const configFile = './core/configs.json'
+const configFile = './core/src/configs/configs.json'
 
 const primarySidebarConfigs = {}
-const primarySidebarConfigFile = './core/primarySidebarConfigs.json'
+const primarySidebarConfigFile = './core/src/configs/primarySidebarConfigs.json'
 
 /**
  * Reads the folder and makes an array of the folder structure,

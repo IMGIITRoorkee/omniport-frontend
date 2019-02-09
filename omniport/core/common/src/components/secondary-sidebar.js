@@ -9,11 +9,13 @@ class SecondarySidebar extends React.PureComponent {
     const { children, withScrollbars } = this.props
     return (
       <div styleName='secondary-sidebar'>
-        {withScrollbars
-          ? <Scrollbars autoHide className='scrollbar-wrapper'>
+        {withScrollbars ? (
+          <Scrollbars autoHide className='scrollbar-wrapper'>
             {children}
           </Scrollbars>
-          : children}
+        ) : (
+          children
+        )}
       </div>
     )
   }

@@ -2,18 +2,18 @@ import React, { Component, Suspense } from 'react'
 import {
   Switch,
   Route,
-  BrowserRouter,
-  Redirect,
-  history
+  BrowserRouter as Router,
+  Redirect
 } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { Loading, NoMatch } from 'formula_one'
 import { setAppList } from 'core/common/src/actions/appList'
 
-import primarySidebarConfig from 'core/primarySidebarConfigs.json'
-import configs from './configs.json'
-import OmniportFrame from './common/src/components/omniport-frame.js'
+import primarySidebarConfig from 'core/src/configs/primarySidebarConfigs.json'
+import configs from 'core/src/configs/configs.json'
+
+import { OmniportFrame } from './common/src/components/omniport-frame.js'
 
 /*
  This is the entry point for Omniport
@@ -25,10 +25,10 @@ class App extends Component {
   }
 
   render () {
-    const { appList } = this.props
+    const { appList, history } = this.props
     return (
       <Suspense fallback={Loading}>
-        <BrowserRouter history={history}>
+        <Router history={history}>
           <Switch>
             {/* Root route to redirect to the service with the highest priority
             in the sidebar */}
@@ -92,7 +92,7 @@ class App extends Component {
             {/* Default 404 page */}
             {appList.isLoaded && <Route component={NoMatch} />}
           </Switch>
-        </BrowserRouter>
+        </Router>
       </Suspense>
     )
   }

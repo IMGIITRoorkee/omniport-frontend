@@ -3,12 +3,12 @@ import { Route, Switch } from 'react-router-dom'
 import { isMobile, isBrowser } from 'react-device-detect'
 
 import Sidebar from 'core/common/src/components/primary-sidebar'
-import { AppHeader, AppFooter, AppMain } from 'formula_one'
-import configs from 'core/configs.json'
+import { AppHeader, AppFooter, AppMain, Loading } from 'formula_one'
+import configs from 'core/src/configs/configs.json'
 
 import main from 'formula_one/src/css/app.css'
 
-export default class OmniportFrame extends React.PureComponent {
+export class OmniportFrame extends React.PureComponent {
   render () {
     const creators = [
       {
