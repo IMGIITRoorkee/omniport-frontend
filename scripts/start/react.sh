@@ -53,7 +53,7 @@ start_react_server() {
         --env NAME=${NAME} \
         --env PROXY=${PROXY} \
         omniport-react:latest \
-        yarn --modules-folder /node_modules start --port ${PORT}
+        yarn --modules-folder ../node_modules start --port ${PORT}
 }
 
 if [[ ${DJANGO} -ne -1 ]]; then
