@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-import { commonApps } from 'formula_one'
-import { urlAppList } from 'formula_one'
+import { commonApps, urlAppList } from 'formula_one'
 
 export const setAppList = () => {
   return dispatch => {
@@ -12,6 +11,7 @@ export const setAppList = () => {
           type: 'SET_APPLIST',
           payload: {
             isLoaded: true,
+            errored: false,
             data: commonApps(res.data)
           }
         })
@@ -21,6 +21,7 @@ export const setAppList = () => {
           type: 'SET_APPLIST',
           payload: {
             isLoaded: true,
+            errored: true,
             data: []
           }
         })
