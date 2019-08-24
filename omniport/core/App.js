@@ -24,6 +24,12 @@ class App extends Component {
     this.props.setAppList()
   }
 
+  componentDidUpdate (prev) {
+    if (this.props.isAuthenticated && this.props.appList.errored) {
+      this.props.setAppList()
+    }
+  }
+
   render () {
     const { appList, history } = this.props
     return (
@@ -78,19 +84,22 @@ class App extends Component {
               })}
 
             {/* Route to serve apps */}
-            {appList.isLoaded &&
-              appList.data.map((app, index) => {
-                return (
-                  <Route
-                    path={app.baseUrl}
-                    key={index}
-                    component={React.lazy(() => import(`apps/${app.source}`))}
-                  />
-                )
-              })}
+            {appList && appList.isLoaded && (
+              <Switch>
+                {appList.data.map((app, index) => {
+                  return (
+                    <Route
+                      path={app.baseUrl}
+                      key={index}
+                      component={React.lazy(() => import(`apps/${app.source}`))}
+                    />
+                  )
+                })}
 
-            {/* Default 404 page */}
-            {appList.isLoaded && <Route component={NoMatch} />}
+                {/* Default 404 page */}
+                <Route component={NoMatch} />
+              </Switch>
+            )}
           </Switch>
         </Router>
       </Suspense>
@@ -100,7 +109,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    appList: state.appList
+    appList: state.appList,
+    isAuthenticated: state.user.isAuthenticated
   }
 }
 
