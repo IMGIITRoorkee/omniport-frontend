@@ -21,7 +21,7 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "@tinymce/tinymce-react": "^2.6.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "immutable": "^3.8.1",
     "moment": "^2.24.0",
     "object-assign": "^4.1.1",
