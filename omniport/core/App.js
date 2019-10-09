@@ -6,6 +6,7 @@ import {
   Redirect
 } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { SemanticToastContainer } from 'react-semantic-toasts'
 
 import { Loading, NoMatch } from 'formula_one'
 import { setAppList } from 'core/common/src/actions/appList'
@@ -34,6 +35,9 @@ class App extends Component {
     const { appList, history } = this.props
     return (
       <Suspense fallback={Loading}>
+        {/* Container for toast notifications */}
+        <SemanticToastContainer />
+
         <Router history={history}>
           <Switch>
             {/* Root route to redirect to the service with the highest priority
