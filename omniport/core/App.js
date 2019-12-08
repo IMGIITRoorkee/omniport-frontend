@@ -25,8 +25,9 @@ class App extends Component {
     this.props.setAppList()
   }
 
-  componentDidUpdate (prev) {
-    if (this.props.isAuthenticated && this.props.appList.errored) {
+  componentDidUpdate (prevProps) {
+    if (this.props.isAuthenticated !== prevProps.isAuthenticated &&
+        this.props.appList.errored !== prevProps.appList.errored) {
       this.props.setAppList()
     }
   }
