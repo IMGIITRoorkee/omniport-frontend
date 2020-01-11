@@ -28,6 +28,7 @@ module.exports = merge(common, {
         '/session_auth',
         '/open_auth',
         '/token_auth',
+        '/guest_auth',
 
         // Core components
         '/omnipotence',
