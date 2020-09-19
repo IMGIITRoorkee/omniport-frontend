@@ -107,7 +107,7 @@ class App extends Component {
                 })}
 
                 {/* Default 404 page */}
-                <Route component={NoMatch} />
+                <Route component={({history}) => <NoMatch history={history} />} />
               </Switch>
             )}
           </Switch>
