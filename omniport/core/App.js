@@ -93,6 +93,23 @@ class App extends Component {
                 )
               })}
 
+            {/* Route to serve public face of an app if exists */}
+            {configs.apps
+              .filter(app => {
+                return app.public
+              })
+              .map((app, index) => {
+                return (
+                  <Route
+                    path={`/public${app.public.baseUrl}`}
+                    key={index}
+                    component={React.lazy(() =>
+                      import(`apps/${app.public.source}`)
+                    )}
+                  />
+                )
+              })}
+
             {/* Route to serve apps */}
             {appList && appList.isLoaded && (
               <Switch>
