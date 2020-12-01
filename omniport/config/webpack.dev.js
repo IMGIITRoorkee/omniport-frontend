@@ -36,6 +36,7 @@ module.exports = merge(common, {
 
         // Files
         '/branding',
+        '/external',
         '/static',
         '/media',
         '/personal',
