@@ -46,6 +46,7 @@
     "react-favicon": "0.0.14",
     "react-file-icon": "^1.0.0",
     "react-helmet": "^5.2.0",
+    "react-hot-toast": "^1.0.2",
     "react-image-crop": "^6.0.12",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
