@@ -28,6 +28,7 @@
     "@fullcalendar/timegrid": "^5.1.0",
     "@tinymce/tinymce-react": "^2.6.1",
     "axios": "^0.18.0",
+    "dompurify": "^2.3.1",
     "firebase": "^6.6.2",
     "immutable": "^3.8.1",
     "moment": "^2.24.0",
