@@ -13,9 +13,6 @@ window.store = store
 ReactDOM.render(
   <Provider store={store}>
     <App />
-    {/* <div className={`${styles['bg-red-900']} ${styles['text-4xl']} ${styles['text-blue-900']}`}>
-      sdskdhueskfjcfwe
-    </div> */}
   </Provider>,
   document.getElementById('app')
 )
