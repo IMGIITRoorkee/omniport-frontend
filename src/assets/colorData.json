@@ -1,0 +1,70 @@
+{
+    "list": [
+        {
+            "name": "red",
+            "verboseName": "Luscious Red",
+            "description": "Passionate and driven",
+            "hexCode": "#db2828"
+        },
+        {
+            "name": "orange",
+            "verboseName": "Maverick Orange",
+            "description": "Unorthodox and chaotic",
+            "hexCode": "#f2711c"
+        },
+        {
+            "name": "yellow",
+            "verboseName": "Sunkissed Yellow",
+            "description": "Lucky and happy",
+            "hexCode": "#fbbd08"
+        },
+        {
+            "name": "olive",
+            "verboseName": "Disgusting Olive",
+            "description": "Niche and nice",
+            "hexCode": "#b5cc18"
+        },
+        {
+            "name": "green",
+            "verboseName": "Earthly Green",
+            "description": "Patient and healing",
+            "hexCode": "#21ba45"
+        },
+        {
+            "name": "teal",
+            "verboseName": "Aqua Teal",
+            "description": "Gentle and powerful",
+            "hexCode": "#00b5ad"
+        },
+        {
+            "name": "blue",
+            "verboseName": "Bland Blue",
+            "description": "Calming and relaxing",
+            "hexCode": "#2185d0"
+        },
+        {
+            "name": "violet",
+            "verboseName": "Rich Lavender",
+            "description": "Regal and classy",
+            "hexCode": "#6435c9"
+        },
+        {
+            "name": "purple",
+            "verboseName": "Lightning Purple",
+            "description": "Fierce and romantic",
+            "hexCode": "#a333c8"
+        },
+        {
+            "name": "pink",
+            "verboseName": "Proud Pink",
+            "description": "Unique and beautiful",
+            "hexCode": "#e03997"
+        },
+        {
+            "name": "black",
+            "verboseName": "Wicked Black",
+            "description": "Nightly and sinful",
+            "hexCode": "#1b1c1d"
+        }
+    ]
+}
