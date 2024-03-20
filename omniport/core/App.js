@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { SemanticToastContainer } from 'react-semantic-toasts'
-
 import { Loading, NoMatch } from 'formula_one'
 import { setAppList } from 'core/common/src/actions/appList'
 
