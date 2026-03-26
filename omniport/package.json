@@ -74,6 +74,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@webpack-cli/serve": "^3.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
